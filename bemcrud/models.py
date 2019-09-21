@@ -47,3 +47,13 @@ class Person(models.Model):
 
   def __str__(self):
     return self.name
+
+class Request(models.Model):
+
+  cpf = models.CharField(max_length=11, blank=False)
+  value = models.DecimalField(max_digits=10, blank=False, decimal_places=2)
+  installments = models.IntegerField(blank=False, default=1)
+  date = models.DateTimeField(auto_now=True)
+
+  def __str__(self):
+    return self.cpf

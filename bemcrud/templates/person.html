@@ -55,6 +55,20 @@
          - {{ person.state }}
         <br />
     {% endif %}
+    <br />
+    <b>Propostas Realizadas:</b>
+    <ul class='requests'>
+        {% for request in requests %}
+            <li>
+                <b>Número da Proposta: </b>{{ request.id }}<br/>
+                <b>Data da Proposta: </b>{{ request.date }}<br/>
+                <b>Valor: </b>{{ request.value }}<br/>
+                <b>Número de Parcelas: </b>{{ request.installments }}<br/>
+                <b>Valor da Parcela: </b>
+                {{ request.installmentsValue }}
+            </li>
+        {% endfor %}
+    </ul>
   </div>
   <div>
     <a href="{% url 'listPerson' %}">

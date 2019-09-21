@@ -1,5 +1,7 @@
 from django.shortcuts import render, redirect
-from .models import Person as PersonModel
+from decimal import Decimal
+
+from .models import Person as PersonModel, Request as RequestModel
 from .form import Person as PersonForm
 
 class Person:
@@ -9,7 +11,17 @@ class Person:
 
   def show(meta, request, id):
     person = PersonModel.objects.get(id=id)
-    return render(request, 'person.html', { 'person': person })
+    requests = RequestModel.objects.filter(cpf=person.cpf) or []
+
+    interest = 10
+
+    if len(requests) > 0:
+      for req in requests:
+        normalizedRate = Decimal(interest / 100 + 1) 
+        installmentsValue = (req.value * normalizedRate / req.installments)
+        req.installmentsValue = round(installmentsValue, 2)
+
+    return render(request, 'person.html', { 'person': person, 'requests': requests })
 
   def create(meta, request):
     form = PersonForm(request.POST or None)
