@@ -25,3 +25,12 @@ class Person:
         return redirect('listPerson')
 
     return render(request, 'person-form.html', {'form': form, 'person': person})
+  
+  def delete(meta, request, id):
+    person = PersonModel.objects.get(id=id)
+
+    if request.method == 'POST':
+        person.delete()
+        return redirect('listPerson')
+
+    return render(request, 'person-delete.html', {'person': person})

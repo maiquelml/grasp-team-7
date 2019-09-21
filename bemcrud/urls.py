@@ -7,6 +7,7 @@ from .views import Person
 person = Person()
 
 urlpatterns = [
+    path('excluir-pessoa/<int:id>/', person.delete, name='delete'),
     path('editar-pessoa/<int:id>/', person.update, name='update'),
     path('incluir-pessoa', person.create, name='create'),
     path('', person.listPerson, name='listPerson'),
