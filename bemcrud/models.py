@@ -38,7 +38,7 @@ class Person(models.Model):
   dateOfBirth = models.DateField(default=None, blank=True, null=True)
   
   telephone = models.CharField(max_length=12, default=None, blank=True, null=True)
-  cellPhone = models.CharField(max_length=12, default=None, blank=True, null=True)
+  cellphone = models.CharField(max_length=12, default=None, blank=True, null=True)
   email = models.CharField(max_length=100, default=None, blank=True, null=True)
   cep = models.CharField(max_length=8, default=None, blank=True, null=True)
   address = models.CharField(max_length=100, default=None, blank=True, null=True)
@@ -47,3 +47,13 @@ class Person(models.Model):
 
   def __str__(self):
     return self.name
+
+class Request(models.Model):
+
+  cpf = models.CharField(max_length=11, blank=False)
+  value = models.DecimalField(max_digits=10, blank=False, decimal_places=2)
+  installments = models.IntegerField(blank=False, default=1)
+  date = models.DateTimeField(auto_now=True)
+
+  def __str__(self):
+    return self.cpf

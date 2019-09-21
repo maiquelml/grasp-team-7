@@ -2,6 +2,7 @@ body {
   font-family: 'Ubuntu', sans-serif;
   display: grid;
   grid-template-columns: 1fr 1fr;
+  margin: 20px;
 }
 
 body:first-child {
@@ -29,7 +30,7 @@ button, input {
 }
 
 button.create {
-  margin: 25px 25px 0 auto;
+  margin: 5px 5px 0 auto;
 }
 
 .options a > * {
