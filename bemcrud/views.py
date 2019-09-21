@@ -7,6 +7,10 @@ class Person:
     personList = PersonModel.objects.all()
     return render(request, 'index.html', { 'personList': personList })
 
+  def show(meta, request, id):
+    person = PersonModel.objects.get(id=id)
+    return render(request, 'person.html', { 'person': person })
+
   def create(meta, request):
     form = PersonForm(request.POST or None)
 
