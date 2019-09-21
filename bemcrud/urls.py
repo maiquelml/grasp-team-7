@@ -1,7 +1,9 @@
 from django.conf.urls import url
 
-from .views import listPerson
+from .views import Person
+
+person = Person()
 
 urlpatterns = [
-    url('', listPerson, name='listPerson'),
+    url('', person.listPerson, name='listPerson'),
 ]

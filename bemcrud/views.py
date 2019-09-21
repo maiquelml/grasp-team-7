@@ -1,6 +1,7 @@
 from django.shortcuts import render
-from .models import Person
+from .models import Person as PersonModel
 
-def listPerson(request):
-  personList = Person.objects.all()
-  return render(request, 'index.html', { 'personList': personList })
+class Person:
+  def listPerson(meta, request):
+    personList = PersonModel.objects.all()
+    return render(request, 'index.html', { 'personList': personList })
