@@ -1,2 +1,5 @@
 env/
 .vscode/
+grasp/__pycache__/
+bemcrud/__pycache__/
+bemcrud/migrations/__pycache__/
