@@ -18,8 +18,32 @@
         <b>Inscrição: </b>{{ person.id }}<br />
         <b>Nome: </b>{{ person.name }}<br />
         <b>CPF: </b>{{ person.cpf }}<br />
-        <b>Telefone: </b>{{ person.phone }}<br />
-        <b>Endereço: </b>{{ person.address }}, {{ person.addressNumber }}<br />
+        {% if person.dateOfBirth %}
+          <b>Data de Nasc.: </b>
+          {{ person.dateOfBirth }}
+          <br />
+        {% endif %}
+        {% if person.telephone or person.celphone %}
+          <b>Telefones: </b>
+          {% if person.telephone %}
+            {{ person.telephone }}
+          {% endif %}
+          {% if person.cellphone %}
+            {% if person.cellphone %}
+              |
+            {% endif %}
+            {{ person.cellphone }}
+          {% endif %}
+          <br />
+        {% endif %}
+        {% if person.address %}
+            <b>Endereço: </b>
+            {{ person.address }}
+            {% if person.addressNumber %}
+                , {{ person.celladdressNumberphone }}
+            {% endif %}
+            <br />
+        {% endif %}
         <div class="options">
           <a href="{% url 'show' person.id %}">
             <button type="button">Visualizar</button>

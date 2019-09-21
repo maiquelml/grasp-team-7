@@ -15,8 +15,46 @@
     <b>Inscrição: </b>{{ person.id }}<br />
     <b>Nome: </b>{{ person.name }}<br />
     <b>CPF: </b>{{ person.cpf }}<br />
-    <b>Telefone: </b>{{ person.phone }}<br />
-    <b>Endereço: </b>{{ person.address }}, {{ person.addressNumber }}<br />
+    {% if person.rg %}
+        <b>RG: </b>
+        {{ person.rg }}
+        <br />
+    {% endif %}
+    {% if person.dateOfBirth %}
+        <b>Data de Nascimento: </b>
+        {{ person.dateOfBirth }}
+        <br />
+    {% endif %}
+    {% if person.email %}
+        <b>E-mail: </b>
+        {{ person.email }}
+        <br />
+    {% endif %}
+    {% if person.telephone or person.celphone %}
+        <b>Telefones: </b>
+        {% if person.telephone %}
+            {{ person.telephone }}
+        {% endif %}
+        {% if person.cellphone %}
+            {% if person.cellphone %}
+              |
+            {% endif %}
+            {{ person.cellphone }}
+        {% endif %}
+        <br />
+    {% endif %}
+    {% if person.address %}
+        <b>Endereço: </b>
+        {{ person.address }}
+        {% if person.cep %}
+            ({{ person.cep }})
+        {% endif %}
+        {% if person.addressNumber %}
+            , {{ person.addressNumber }}
+        {% endif %}
+         - {{ person.state }}
+        <br />
+    {% endif %}
   </div>
   <div>
     <a href="{% url 'listPerson' %}">

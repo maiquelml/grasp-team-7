@@ -38,7 +38,7 @@ class Person(models.Model):
   dateOfBirth = models.DateField(default=None, blank=True, null=True)
   
   telephone = models.CharField(max_length=12, default=None, blank=True, null=True)
-  cellPhone = models.CharField(max_length=12, default=None, blank=True, null=True)
+  cellphone = models.CharField(max_length=12, default=None, blank=True, null=True)
   email = models.CharField(max_length=100, default=None, blank=True, null=True)
   cep = models.CharField(max_length=8, default=None, blank=True, null=True)
   address = models.CharField(max_length=100, default=None, blank=True, null=True)
