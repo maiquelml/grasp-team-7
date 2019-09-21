@@ -7,6 +7,7 @@ from .views import Person
 person = Person()
 
 urlpatterns = [
+    path('editar-pessoa/<int:id>/', person.update, name='update'),
     path('incluir-pessoa', person.create, name='create'),
     path('', person.listPerson, name='listPerson'),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

@@ -13,7 +13,8 @@
   <ul>
     {% for person in personList %}
     <li>
-      <b>Nome: </b>{{ person.name }}<br />
+      <b>Inscrição: </b>{{ person.id }}<br />
+      <b>Nome: </b>{{ person.name }} ({{ person.id }})<br />
       <b>CPF: </b>{{ person.cpf }}<br />
       <b>Telefone: </b>{{ person.phone }}<br />
       <b>Endereço: </b>{{ person.address }}, {{ person.addressNumber }}<br />

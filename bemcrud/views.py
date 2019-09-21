@@ -12,6 +12,16 @@ class Person:
 
     if form.is_valid():
         form.save()
-        return redirect('incluir-pessoa')
+        return redirect('listPerson')
 
-    return render(request, 'incluir-pessoa.html', {'form': form})
+    return render(request, 'person-form.html', {'form': form})
+
+  def update(meta, request, id):
+    person = PersonModel.objects.get(id=id)
+    form = PersonForm(request.POST or None, instance=person)
+
+    if form.is_valid():
+        form.save()
+        return redirect('listPerson')
+
+    return render(request, 'person-form.html', {'form': form, 'person': person})
