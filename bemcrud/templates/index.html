@@ -45,14 +45,17 @@
             <br />
         {% endif %}
         <div class="options">
-          <a href="{% url 'show' person.id %}">
+          <a href="{% url 'showPerson' person.id %}">
             <button type="button">Visualizar</button>
           </a>
-          <a href="{% url 'update' person.id %}">
+          <a href="{% url 'updatePerson' person.id %}">
             <button type="button">Editar</button>
           </a>
-          <a href="{% url 'delete' person.id %}">
+          <a href="{% url 'deletePerson' person.id %}">
             <button type="button">Excluir</button>
+          </a>
+          <a href="{% url 'createRequest' person.id %}">
+            <button type="button">Nova proposta</button>
           </a>
         </div>
       </li>
@@ -60,7 +63,7 @@
     </ul>
   </div>
   <div>
-    <a href="{% url 'create' %}">
+    <a href="{% url 'createPerson' %}">
       <button type="button" class="create">Nova pessoa</button>
     </a>
   </div>

@@ -1,15 +1,17 @@
+from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
-from django.urls import path
 
-from .views import Person
+from .views import Person, Request
 
 person = Person()
+request = Request()
 
 urlpatterns = [
-    path('excluir-pessoa/<int:id>/', person.delete, name='delete'),
-    path('editar-pessoa/<int:id>/', person.update, name='update'),
-    path('incluir-pessoa', person.create, name='create'),
-    path('pessoa/<int:id>', person.show, name='show'),
+    path('excluir-pessoa/<int:id>/', person.delete, name='deletePerson'),
+    path('editar-pessoa/<int:id>/', person.update, name='updatePerson'),
+    path('incluir-pessoa', person.create, name='createPerson'),
+    path('incluir-proposta/<int:id>', request.create, name='createRequest'),
+    path('pessoa/<int:id>', person.show, name='showPerson'),
     path('', person.listPerson, name='listPerson'),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

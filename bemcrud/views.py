@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from decimal import Decimal
 
 from .models import Person as PersonModel, Request as RequestModel
-from .form import Person as PersonForm
+from .form import Person as PersonForm, Request as RequestForm
 
 class Person:
   def listPerson(meta, request):
@@ -46,7 +46,23 @@ class Person:
     person = PersonModel.objects.get(id=id)
 
     if request.method == 'POST':
+        RequestModel.objects.filter(cpf=person.cpf).delete()
         person.delete()
         return redirect('listPerson')
 
     return render(request, 'person-delete.html', {'person': person})
+
+class Request:
+
+  def create(self, request, id):
+    form = RequestForm(request.POST or None)
+    person = PersonModel.objects.get(id=id)
+
+    if form.is_valid():
+        prepareForm = form.save(commit=False)
+        prepareForm.cpf = person.cpf
+        prepareForm.save()
+
+        return redirect('listPerson')
+
+    return render(request, 'request-form.html', {'form': form, 'person': person })
