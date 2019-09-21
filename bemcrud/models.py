@@ -34,16 +34,16 @@ class Person(models.Model):
 
   name = models.CharField(max_length=100, blank=False)
   cpf = models.CharField(max_length=11, blank=False, unique=True)
-  rg = models.CharField(max_length=15, default=None, blank=True)
-  dateOfBirth = models.DateField(default=None, blank=True)
+  rg = models.CharField(max_length=15, default=None, blank=True, null=True)
+  dateOfBirth = models.DateField(default=None, blank=True, null=True)
   
-  telephone = models.CharField(max_length=12, default=None, blank=True)
-  cellPhone = models.CharField(max_length=12, default=None, blank=True)
-  email = models.CharField(max_length=100, default=None, blank=True)
-  cep = models.CharField(max_length=8, default=None, blank=True)
-  address = models.CharField(max_length=100, default=None, blank=True)
-  addressNumber = models.IntegerField(default=None, blank=True)
-  state = models.CharField(max_length=2, choices=STATES, default='SP', blank=True)
+  telephone = models.CharField(max_length=12, default=None, blank=True, null=True)
+  cellPhone = models.CharField(max_length=12, default=None, blank=True, null=True)
+  email = models.CharField(max_length=100, default=None, blank=True, null=True)
+  cep = models.CharField(max_length=8, default=None, blank=True, null=True)
+  address = models.CharField(max_length=100, default=None, blank=True, null=True)
+  addressNumber = models.IntegerField(default=None, blank=True, null=True)
+  state = models.CharField(max_length=2, choices=STATES, default='SP', blank=True, null=True)
 
   def __str__(self):
     return self.name
