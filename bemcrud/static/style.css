@@ -1,11 +1,7 @@
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Ubuntu', sans-serif;
   display: grid;
   grid-template-columns: 1fr 1fr;
-}
-
-a {
-  text-decoration: none;
 }
 
 body:first-child {
@@ -19,8 +15,8 @@ body:last-child {
   grid-column-end: 3;
 }
 
-body > div a button {
-  margin: 25px 25px 0 auto;
+a {
+  text-decoration: none;
 }
 
 li {
@@ -30,6 +26,10 @@ li {
 button, input {
   display: block;
   margin-bottom: 10px;
+}
+
+button.create {
+  margin: 25px 25px 0 auto;
 }
 
 .options a > * {
