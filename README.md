@@ -1,6 +1,7 @@
 # grasp-team-7
 
 Versões: Python 3.7.4 e Django 2.2.5
+
 Host default: http://localhost:8000
 
 * Leonardo Rottoli <leonardorottoli@gmail.com>
