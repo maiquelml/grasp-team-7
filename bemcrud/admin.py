@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Person, Request
+from .models import PersonModel, RequestModel
 
-admin.site.register(Person)
-admin.site.register(Request)
+admin.site.register(PersonModel)
+admin.site.register(RequestModel)

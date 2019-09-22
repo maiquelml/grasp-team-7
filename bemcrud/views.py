@@ -1,10 +1,11 @@
 from django.shortcuts import render, redirect
 from decimal import Decimal
 
-from .models import Person as PersonModel, Request as RequestModel
-from .form import Person as PersonForm, Request as RequestForm
+from .models import PersonModel, RequestModel
+from .forms import PersonForm, RequestForm
 
-class Person:
+class PersonView:
+
   def listPerson(meta, request):
     personList = PersonModel.objects.all()
     return render(request, 'index.html', { 'personList': personList })
@@ -52,7 +53,7 @@ class Person:
 
     return render(request, 'person-delete.html', {'person': person})
 
-class Request:
+class RequestView:
 
   def create(self, request, id):
     form = RequestForm(request.POST or None)
