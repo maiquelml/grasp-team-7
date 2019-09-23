@@ -2,10 +2,10 @@ from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
 
-from .views import Person, Request
+from .views import PersonView, RequestView
 
-person = Person()
-request = Request()
+person = PersonView()
+request = RequestView()
 
 urlpatterns = [
     path('excluir-pessoa/<int:id>/', person.delete, name='deletePerson'),

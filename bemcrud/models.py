@@ -1,6 +1,6 @@
 from django.db import models
 
-class Person(models.Model):
+class PersonModel(models.Model):
 
   STATES = (
     ('AC', 'Acre'),
@@ -48,7 +48,7 @@ class Person(models.Model):
   def __str__(self):
     return self.name
 
-class Request(models.Model):
+class RequestModel(models.Model):
 
   cpf = models.CharField(max_length=11, blank=False)
   value = models.DecimalField(max_digits=10, blank=False, decimal_places=2)

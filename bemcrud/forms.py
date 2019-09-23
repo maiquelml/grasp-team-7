@@ -1,7 +1,7 @@
 from django import forms
-from .models import Person as PersonModel, Request as RequestModel
+from .models import PersonModel, RequestModel
 
-class Person(forms.ModelForm):
+class PersonForm(forms.ModelForm):
     class Meta:
         model = PersonModel
         fields = [
@@ -18,7 +18,7 @@ class Person(forms.ModelForm):
             'state'
         ]
 
-class Request(forms.ModelForm):
+class RequestForm(forms.ModelForm):
     class Meta:
         model = RequestModel
         fields = [
